@@ -1,9 +1,28 @@
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { Button, TextField } from "components/atoms";
+import { isEmptyString } from "utils/common";
 
 const Home: NextPage = () => {
-  const handleSubmit = () => {
-    console.log("test");
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  const handleOnChange = (username: string) => {
+    setError("");
+    setUsername(username);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+
+    if (isEmptyString(username)) {
+      setError("Please fill in a Github username");
+    } else {
+      router.push(`username/${username}`);
+    }
   };
 
   return (
@@ -18,9 +37,17 @@ const Home: NextPage = () => {
         </h1>
 
         <form onSubmit={handleSubmit}>
-          <TextField className="mr-2 w-80" placeholder="Github username" />
+          <TextField
+            value={username}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleOnChange(e.target.value)
+            }
+            className="mr-2 w-80"
+            placeholder="Github username"
+          />
           <Button text="Get repositories" submit />
         </form>
+        {error && <div className="mt-1 text-red-500">{error}</div>}
       </div>
     </div>
   );
