@@ -1,4 +1,4 @@
-import { TextFieldProperties } from "./TextField.properties";
+import { TextFieldProperties } from "./TextField.namespace";
 
 export const TextField: React.FC<TextFieldProperties> = ({
   placeholder,

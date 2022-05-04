@@ -30,7 +30,7 @@ const Home: NextPage = () => {
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="m-auto">
-        <video className="mb-8 mx-auto h-32" loop autoPlay muted>
+        <video className="mb-8 mx-auto h-32" loop autoPlay muted playsInline>
           <source src="/assets/github-logo.mp4" type="video/mp4" />
         </video>
 

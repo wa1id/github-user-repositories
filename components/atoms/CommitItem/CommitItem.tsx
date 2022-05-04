@@ -1,9 +1,9 @@
-import { CommitItemProperties } from "./CommitItem.properties";
+import { CommitItemProperties } from "./CommitItem.namespace";
 
-export const CommitItem: React.FC<CommitItemProperties> = ({ commitData }) => {
+export const CommitItem: React.FC<CommitItemProperties> = ({ commit }) => {
   const {
     commit: { message, committer },
-  } = commitData;
+  } = commit;
 
   return (
     <div className="border-b border-gray-200 py-4 mx-4 w-full">

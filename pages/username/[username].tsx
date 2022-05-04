@@ -2,10 +2,11 @@ import type { GetServerSideProps, NextPage } from "next";
 import { Spacer } from "components/atoms";
 import { Size } from "components/atoms/Spacer/Size";
 import { Repositories } from "components/molecules";
+import { Repository } from "namespace/repository.namespace";
 
 interface Props {
   username: string;
-  userReposData: any; // TODO: types
+  userReposData: Repository[];
 }
 
 const Username: NextPage<Props> = ({ username, userReposData }) => {
@@ -23,14 +24,22 @@ const Username: NextPage<Props> = ({ username, userReposData }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const username = context.query.username;
+  const { username } = context.query;
 
-  const fetchUserRepos = await fetch(
-    `https://api.github.com/users/${username}/repos`
-  );
-  const userReposData = await fetchUserRepos.json();
+  try {
+    const fetchUserRepos = await fetch(
+      `https://api.github.com/users/${username}/repos`
+    );
+    const userReposData = await fetchUserRepos.json();
 
-  return { props: { username, userReposData } };
+    if (!userReposData) {
+      return { notFound: true };
+    }
+
+    return { props: { username, userReposData } };
+  } catch (error) {
+    return { notFound: true, error };
+  }
 };
 
 export default Username;

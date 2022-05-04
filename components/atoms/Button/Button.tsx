@@ -1,4 +1,4 @@
-import { ButtonProperties } from "./Button.properties";
+import { ButtonProperties } from "./Button.namespace";
 
 export const Button: React.FC<ButtonProperties> = ({ text, submit }) => {
   return (

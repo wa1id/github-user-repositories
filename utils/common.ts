@@ -1,3 +1,3 @@
 export const isEmptyString = (text: string) => {
-  return text === "";
+  return text.trim() === "";
 };

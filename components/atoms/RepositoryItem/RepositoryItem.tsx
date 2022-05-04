@@ -1,4 +1,4 @@
-import { RepositoryItemProperties } from "./RepositoryItem.properties";
+import { RepositoryItemProperties } from "./RepositoryItem.namespace";
 
 export const RepositoryItem: React.FC<RepositoryItemProperties> = ({
   repository,

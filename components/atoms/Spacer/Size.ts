@@ -1,4 +1,4 @@
-export enum Size {
+export const enum Size {
   EXTRA_SMALL = "py-1",
   SMALL = "py-2",
   MEDIUM = "py-6",

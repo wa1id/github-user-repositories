@@ -28,6 +28,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - `map()`: map an array of objects to a Component
 
+- `trim()`: remove any trailing or leading empty spaces. Used for checking if the searchfield is empty. Without using `trim()` an empty space like `" "` would would be considered not empty
+
 - Template strings: API calls are done using template strings for better readability. Example: `api.github.com/users/${username}/repos`
 
 - Object destructuring
@@ -37,5 +39,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Todo
 
 - Implement state management for less round trips to the Github API. I would go with something lightweight without much boilerplate code (https://github.com/vercel/next.js/tree/canary/examples/with-zustand)
-- Use an authenticated API key to prevent rate limit of 60 API calls/minute
+- Use an authenticated API key to prevent rate limit of 60 API calls/hour
 - E2E tests using Cypress
