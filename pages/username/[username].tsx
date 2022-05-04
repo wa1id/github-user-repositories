@@ -1,6 +1,8 @@
+import type { GetServerSideProps, NextPage } from "next";
 import { RepositoryItem, Spacer } from "components/atoms";
 import { Size } from "components/atoms/Spacer/Size";
-import type { GetServerSideProps, NextPage } from "next";
+import { NOT_FOUND_MESSAGE } from "constants/common";
+import Link from "next/link";
 
 interface Props {
   username: string;
@@ -9,7 +11,10 @@ interface Props {
 
 const Username: NextPage<Props> = ({ username, userReposData }) => {
   console.log("userReposData", userReposData);
-  const NOT_FOUND_MESSAGE = "Not Found";
+
+  const handleOnClickRepository = () => {
+    console.log("test");
+  };
 
   return (
     <div className="container mx-auto">
@@ -25,7 +30,18 @@ const Username: NextPage<Props> = ({ username, userReposData }) => {
         {userReposData.message === NOT_FOUND_MESSAGE && <div>Not found...</div>}
         {userReposData.message !== NOT_FOUND_MESSAGE &&
           userReposData.map((repo: any) => (
-            <RepositoryItem key={repo.id} repository={repo} />
+            <Link
+              key={repo.id}
+              href={`/commits/${repo.name}?username=${username}`}
+              passHref
+            >
+              <a>
+                <RepositoryItem
+                  repository={repo}
+                  onClick={handleOnClickRepository}
+                />
+              </a>
+            </Link>
           ))}
       </div>
     </div>
