@@ -39,5 +39,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Todo
 
 - Use an authenticated API key to prevent rate limit of 60 API calls/hour
-- Loading state for better UX
 - E2E tests using Cypress
