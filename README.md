@@ -1,6 +1,6 @@
 # Github Repository Finder
 
-Project hosted on:
+Project hosted on: https://github-search-walid.vercel.app
 
 Search for a Github username to get all the public repositories for that user. Click on any repository to get the latest 20 commits.
 
