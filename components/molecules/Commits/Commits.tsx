@@ -28,12 +28,12 @@ export const Commits: React.FC<CommitsProperties> = ({ commits }) => {
       <TextField
         value={search}
         onChange={setSearchText}
-        className="w-full lg:w-80 lg:mr-2"
+        className="ml-2"
         placeholder="Search commit"
       />
       <Spacer size={Size.EXTRA_SMALL} />
 
-      <div className="flex flex-col">
+      <div className="flex flex-col mx-4">
         {serverMessage === NOT_FOUND_MESSAGE && <div>Not found...</div>}
         {serverMessage !== NOT_FOUND_MESSAGE && displayCommits()}
       </div>
