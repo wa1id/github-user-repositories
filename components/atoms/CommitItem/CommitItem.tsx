@@ -6,7 +6,7 @@ export const CommitItem: React.FC<CommitItemProperties> = ({ commit }) => {
   } = commit;
 
   return (
-    <div className="border-b border-gray-200 py-4 w-full">
+    <div className="border-b border-gray-200 py-4">
       <div className="font-bold">{message}</div>
       <div className="italic text-sm">
         Committed by {committer.name} on{" "}
