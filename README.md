@@ -26,9 +26,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - `filter()`: used to filter the array of commits when searching based on a condition
 
-- `map()`: map an array of objects to a Component, helping use map an array of repositories/commits to a React Component
+- `map()`: used for mapping an array of repositories/commits to a React Component
 
-- `trim()`: remove any trailing or leading empty spaces. Used for checking if the searchfield is empty. Without using `trim()` an empty space like `" "` would would be considered not empty
+- `trim()`: remove any trailing or leading empty spaces. Used for checking if the searchfield is empty. Without using `trim()` an empty space like `" "` would be considered not empty
 
 - Template strings: API calls are done using template strings for better readability. Example: `api.github.com/users/${username}/repos`
 
