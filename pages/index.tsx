@@ -1,18 +1,19 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { Button, Spacer, TextField } from "components/atoms";
 import { isEmptyString } from "utils/common";
 import { Size } from "components/atoms/Spacer/Size";
+import AppContext from "context/state";
 
 const Home: NextPage = () => {
-  const [username, setUsername] = useState("");
-  const [error, setError] = useState("");
   const router = useRouter();
+  const { username, setUsername } = useContext(AppContext);
+  const [error, setError] = useState("");
 
-  const handleOnChange = (username: string) => {
+  const handleOnChange = (givenUsername: string) => {
     setError("");
-    setUsername(username);
+    setUsername(givenUsername);
   };
 
   // TODO: Loading state
