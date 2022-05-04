@@ -6,7 +6,6 @@
     "curly": 1,
     "ordered-imports": [0],
     "object-literal-sort-keys": [0],
-    "max-len": ["warn", { "code": 80, "ignoreComments": true }],
     "new-parens": 1,
     "no-bitwise": 1,
     "no-cond-assign": 1,
